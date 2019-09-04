@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="transaction-message-demo" />
+        <module name="rocketmq" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="transaction-message-demo" target="1.8" />
+      <module name="rocketmq" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
