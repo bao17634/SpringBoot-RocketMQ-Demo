@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/rocketmq.iml" filepath="$PROJECT_DIR$/rocketmq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SpringBoot-RocketMQ-Demo.iml" filepath="$PROJECT_DIR$/.idea/SpringBoot-RocketMQ-Demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/consumer/consumer.iml" filepath="$PROJECT_DIR$/consumer/consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/produce/produce.iml" filepath="$PROJECT_DIR$/produce/produce.iml" />
     </modules>
   </component>
 </project>

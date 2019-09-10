@@ -1,0 +1,6 @@
+server:
+  port: 8088
+#存放公用配置
+spring:
+  profiles:
+    active: dev
