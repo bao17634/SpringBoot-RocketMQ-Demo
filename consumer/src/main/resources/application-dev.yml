@@ -26,5 +26,5 @@ logging:
   level:
     com.company.project.biz.mapper: debug
 mybatis-plus:
-  type-aliases-package: com.company.project.consumer.mapper
+  type-aliases-package: com.byr.project.consumer.paydemo.mapper
   mapper-locations: classpath:mybatis/mapper/*.xml

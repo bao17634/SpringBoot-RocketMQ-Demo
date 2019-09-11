@@ -25,7 +25,7 @@
         <constructor-arg index="4" value="${spring.redis.password}"/>
     </bean>
 
-    <!--<bean id="jedisUtil" class="com.company.project.biz.util.JedisUtil">-->
+    <!--<bean id="jedisUtil" class="com.byrject.paydemodemo.util.JedisUtil">-->
         <!--<constructor-arg index="0" ref="jedisPool"/>-->
     <!--</bean>-->
 

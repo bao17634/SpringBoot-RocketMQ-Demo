@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
-import com.company.project.core.ProjectConstant;
+import com.byr.project.util.core.ProjectConstant;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
