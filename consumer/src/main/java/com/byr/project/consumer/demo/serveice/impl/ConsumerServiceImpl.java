@@ -77,8 +77,6 @@ public class ConsumerServiceImpl implements ConsumerService {
                 } else {
                     saasHouse.setNumber(Integer.valueOf(order.get("orderCount").toString()) + number);
                     saasCunt = saasHouseMapper.updateByExampleSelective(saasHouse, example);
-                    int a=Integer.valueOf(order.get("orderCount").toString()) + number;
-                    log.info("数字：{} "+a);
                 }
             }
             if (saasCunt == 1) {

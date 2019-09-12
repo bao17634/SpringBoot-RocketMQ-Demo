@@ -43,15 +43,15 @@ public class TssHouseServiceImpl implements TssHouseService {
         TssHouseExample example = new TssHouseExample();
         TssHouse tssHouse=new TssHouse();
         example.createCriteria().andCommodityCodeEqualTo(orderDTO.getOrder().getCommodityCode());
-        List<TssHouse> listTss = tssHouseMapper.selectByExample(example);
-        if (listTss == null || listTss.size() < 1) {
+        Integer number = tssHouseMapper.selectNumber(orderDTO.getOrder().getCommodityCode());
+        if (number == null ) {
             log.error("TSS没有此商品的库存");
             throw new RuntimeException("TSS没有此商品的库存");
-        }else if (listTss.get(0).getNumber() < orderDTO.getOrder().getOrderCount()) {
+        }else if (number < orderDTO.getOrder().getOrderCount()) {
             log.error("此商品在Tss库存不足");
             throw new RuntimeException("此商品在Tss库存不足");
         }
-        tssHouse.setNumber(listTss.get(0).getNumber() - orderDTO.getOrder().getOrderCount());
+        tssHouse.setNumber(number - orderDTO.getOrder().getOrderCount());
         Integer a = tssHouseMapper.updateByExampleSelective(tssHouse, example);
         return a;
     }
@@ -62,10 +62,7 @@ public class TssHouseServiceImpl implements TssHouseService {
      */
     public boolean checkTransferStatus(String transactionId) {
         //根据本地线程Id是否有这个数据，有运单记录，标识本地事务执行成功
-        OrderExample example=new OrderExample();
-        example.createCriteria().andTransactionIdEqualTo(transactionId);
-       System.out.println( transactionId);
-        Long count = orderMapper.countByExample(example);
+        Long count = orderMapper.selectCount(transactionId);
         return count > 0;
 
     }

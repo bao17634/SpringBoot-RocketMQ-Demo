@@ -62,7 +62,7 @@ public  class OrderProduceServiceImpl implements OrderProduceService,Initializin
         try {
             Message msg = new Message("orderMessage", "order",orderDTO.getOrder().getOrderCode(),
                     JSON.toJSONString(orderDTO).getBytes(RemotingHelper.DEFAULT_CHARSET));
-            //生产者通过sendMessageInTransaction发送事务消息
+            //生产者通过sendMessageInTransaction想消费者发送事务消息
             SendResult sendResult = producer.sendMessageInTransaction(msg, null);
             System.out.println("prepare事务消息发送结果:"+sendResult.getSendStatus());
         } catch (Exception e) {

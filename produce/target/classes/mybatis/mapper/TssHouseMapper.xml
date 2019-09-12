@@ -185,6 +185,9 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+  <select id="selectNumber" resultType="java.lang.Integer">
+    select number  from tss_house where commodity_code=#{code,jdbcType=VARCHAR} for update;
+  </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--
       WARNING - @mbg.generated

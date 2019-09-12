@@ -4,7 +4,7 @@ spring:
     active: dev
   #数据源配置
   datasource:
-    url: jdbc:mysql://localhost:3306/rocketMq?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false
+    url: jdbc:mysql://localhost:3306/rocketmq?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false
     username: root
     password: bao026099
     driverClassName: com.mysql.jdbc.Driver
