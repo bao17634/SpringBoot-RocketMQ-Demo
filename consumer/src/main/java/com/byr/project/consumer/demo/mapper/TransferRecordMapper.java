@@ -1,7 +1,7 @@
-package com.byr.project.consumer.paydemo.mapper;
+package com.byr.project.consumer.demo.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.byr.project.consumer.paydemo.entity.TransferRecord;
+import com.byr.project.consumer.demo.entity.TransferRecord;
 
 /**
  * @Author: yanrong

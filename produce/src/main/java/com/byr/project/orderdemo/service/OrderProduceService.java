@@ -9,6 +9,6 @@ import com.byr.project.orderdemo.dto.OrderDTO;
  * @Date: 2019/9/10 18:55
  * @Version: 1.0
  */
-public interface OrderProduceService {
+public  interface OrderProduceService {
     void produceOrder(OrderDTO orderDTO);
 }

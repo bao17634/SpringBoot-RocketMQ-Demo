@@ -1,4 +1,4 @@
-package com.byr.project.consumer.paydemo.entity;
+package com.byr.project.consumer.demo.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class TransferRecord implements Serializable {
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -24,29 +24,9 @@ public class TransferRecord implements Serializable {
     private Long id;
 
     /**
-     * 转账人id
+     * 余额
      */
-    private Long fromUserId;
-
-    /**
-     * 转账金额
-     */
-    private Long changeMoney;
-
-    /**
-     * 消息事务id
-     */
-    private String transactionId;
-
-    /**
-     * 被转账人id
-     */
-    private Long toUserId;
-
-    /**
-     * 转账流水编号
-     */
-    private String recordNo;
+    private Long money;
 
 
 }

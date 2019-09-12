@@ -13,7 +13,7 @@ public final class ProjectConstant {
     /**
      * 业务包名
      */
-    public static final String BIZ_PACKAGE = BASE_PACKAGE+".paydemo";
+    public static final String BIZ_PACKAGE = BASE_PACKAGE+".demo";
 
     /**
      * entity实体包路径

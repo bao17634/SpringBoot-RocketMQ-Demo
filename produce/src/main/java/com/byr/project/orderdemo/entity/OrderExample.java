@@ -454,63 +454,143 @@ public class OrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andCommodityidIsNull() {
-            addCriterion("commodityId is null");
+        public Criteria andCommodityCodeIsNull() {
+            addCriterion("commodity_code is null");
             return (Criteria) this;
         }
 
-        public Criteria andCommodityidIsNotNull() {
-            addCriterion("commodityId is not null");
+        public Criteria andCommodityCodeIsNotNull() {
+            addCriterion("commodity_code is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCommodityidEqualTo(Integer value) {
-            addCriterion("commodityId =", value, "commodityid");
+        public Criteria andCommodityCodeEqualTo(String value) {
+            addCriterion("commodity_code =", value, "commodityCode");
             return (Criteria) this;
         }
 
-        public Criteria andCommodityidNotEqualTo(Integer value) {
-            addCriterion("commodityId <>", value, "commodityid");
+        public Criteria andCommodityCodeNotEqualTo(String value) {
+            addCriterion("commodity_code <>", value, "commodityCode");
             return (Criteria) this;
         }
 
-        public Criteria andCommodityidGreaterThan(Integer value) {
-            addCriterion("commodityId >", value, "commodityid");
+        public Criteria andCommodityCodeGreaterThan(String value) {
+            addCriterion("commodity_code >", value, "commodityCode");
             return (Criteria) this;
         }
 
-        public Criteria andCommodityidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("commodityId >=", value, "commodityid");
+        public Criteria andCommodityCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("commodity_code >=", value, "commodityCode");
             return (Criteria) this;
         }
 
-        public Criteria andCommodityidLessThan(Integer value) {
-            addCriterion("commodityId <", value, "commodityid");
+        public Criteria andCommodityCodeLessThan(String value) {
+            addCriterion("commodity_code <", value, "commodityCode");
             return (Criteria) this;
         }
 
-        public Criteria andCommodityidLessThanOrEqualTo(Integer value) {
-            addCriterion("commodityId <=", value, "commodityid");
+        public Criteria andCommodityCodeLessThanOrEqualTo(String value) {
+            addCriterion("commodity_code <=", value, "commodityCode");
             return (Criteria) this;
         }
 
-        public Criteria andCommodityidIn(List<Integer> values) {
-            addCriterion("commodityId in", values, "commodityid");
+        public Criteria andCommodityCodeLike(String value) {
+            addCriterion("commodity_code like", value, "commodityCode");
             return (Criteria) this;
         }
 
-        public Criteria andCommodityidNotIn(List<Integer> values) {
-            addCriterion("commodityId not in", values, "commodityid");
+        public Criteria andCommodityCodeNotLike(String value) {
+            addCriterion("commodity_code not like", value, "commodityCode");
             return (Criteria) this;
         }
 
-        public Criteria andCommodityidBetween(Integer value1, Integer value2) {
-            addCriterion("commodityId between", value1, value2, "commodityid");
+        public Criteria andCommodityCodeIn(List<String> values) {
+            addCriterion("commodity_code in", values, "commodityCode");
             return (Criteria) this;
         }
 
-        public Criteria andCommodityidNotBetween(Integer value1, Integer value2) {
-            addCriterion("commodityId not between", value1, value2, "commodityid");
+        public Criteria andCommodityCodeNotIn(List<String> values) {
+            addCriterion("commodity_code not in", values, "commodityCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommodityCodeBetween(String value1, String value2) {
+            addCriterion("commodity_code between", value1, value2, "commodityCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommodityCodeNotBetween(String value1, String value2) {
+            addCriterion("commodity_code not between", value1, value2, "commodityCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransactionIdIsNull() {
+            addCriterion("transaction_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransactionIdIsNotNull() {
+            addCriterion("transaction_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransactionIdEqualTo(String value) {
+            addCriterion("transaction_id =", value, "transactionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransactionIdNotEqualTo(String value) {
+            addCriterion("transaction_id <>", value, "transactionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransactionIdGreaterThan(String value) {
+            addCriterion("transaction_id >", value, "transactionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransactionIdGreaterThanOrEqualTo(String value) {
+            addCriterion("transaction_id >=", value, "transactionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransactionIdLessThan(String value) {
+            addCriterion("transaction_id <", value, "transactionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransactionIdLessThanOrEqualTo(String value) {
+            addCriterion("transaction_id <=", value, "transactionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransactionIdLike(String value) {
+            addCriterion("transaction_id like", value, "transactionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransactionIdNotLike(String value) {
+            addCriterion("transaction_id not like", value, "transactionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransactionIdIn(List<String> values) {
+            addCriterion("transaction_id in", values, "transactionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransactionIdNotIn(List<String> values) {
+            addCriterion("transaction_id not in", values, "transactionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransactionIdBetween(String value1, String value2) {
+            addCriterion("transaction_id between", value1, value2, "transactionId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransactionIdNotBetween(String value1, String value2) {
+            addCriterion("transaction_id not between", value1, value2, "transactionId");
             return (Criteria) this;
         }
     }

@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
@@ -26,16 +28,17 @@ public class OrderController {
     @Autowired
     OrderProduceService orderProduceService;
     @RequestMapping(value = "/addOrder")
-    public void addOrder() throws Exception {
-        UUID uuid = UUID.randomUUID();
-        String code = uuid.toString().replace("-", "");
+    public Integer addOrder() throws Exception {
+        String code = UUID.randomUUID().toString().replace("-", "");
+        String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         OrderDTO orderDTO = new OrderDTO();
         Order order = new Order();
-        order.setOrderCode(code.substring(4)+new Date().toString());
+        order.setOrderCode(code.substring(4)+date);
         order.setOrderName("电脑");
-        order.setCommodityCode(code);
+        order.setCommodityCode("bf5f48fcfa9d43bca391e9f66fd8c9ba");
         order.setOrderCount(10);
         orderDTO.setOrder(order);
         orderProduceService.produceOrder(orderDTO);
+        return 1;
     }
 }

@@ -8,7 +8,7 @@ spring:
 #    username: root
 #    password: bao026099
 #    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:postgresql://localhost:5432/atomikos
+    url: jdbc:postgresql://localhost:5432/rocketMq
     username: postgres
     password: bao026099
     driverClassName: org.postgresql.Driver

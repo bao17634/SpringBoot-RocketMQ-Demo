@@ -1,6 +1,6 @@
 package com.byr.project.consumer;
 
-import com.byr.project.consumer.paydemo.serveice.ConsumerService;
+import com.byr.project.consumer.demo.serveice.ConsumerService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
@@ -68,7 +68,7 @@ public class ConsumerUtil implements CommandLineRunner {
             @Override
             public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt > message, ConsumeConcurrentlyContext
                     context) {
-                ConsumeConcurrentlyStatus concurrentlyStatus=consumerService.consumeMessage(message);
+                ConsumeConcurrentlyStatus concurrentlyStatus=consumerService.consumePayMessage(message);
                 log.info(concurrentlyStatus.toString());
                 return concurrentlyStatus;
             }
@@ -85,7 +85,7 @@ public class ConsumerUtil implements CommandLineRunner {
              * Instantiate with specified consumer group name.
              * 实例化组名称，提供消费者对象
              */
-            DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group_name");
+            DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("orderDemo");
             /*
              * Specify name server addresses.
              * <p/>
@@ -106,7 +106,7 @@ public class ConsumerUtil implements CommandLineRunner {
              * Subscribe one more more topics to consume.
              * 订阅一个要使用的主题
              */
-            consumer.subscribe("TransanctionMessage", "*");
+            consumer.subscribe("orderMessage", "*");
             /*
              *  Register callback to execute on arrival of messages fetched from brokers.
              *  注册回调函数，以便在从代理获取的消息到达时执行
@@ -115,17 +115,9 @@ public class ConsumerUtil implements CommandLineRunner {
                 @Override
                 public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt > message, ConsumeConcurrentlyContext
                         context) {
-//                    ConsumeConcurrentlyStatus concurrentlyStatus=consumerService.consumeMessage(message);
-                    try {
-                        log.info("order 消费者收听到");
-                        ConsumeConcurrentlyStatus concurrentlyStatus=ConsumeConcurrentlyStatus.class.newInstance();
-                        return concurrentlyStatus;
-                    } catch (InstantiationException e) {
-                        e.printStackTrace();
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    }
-                    return null;
+                    ConsumeConcurrentlyStatus concurrentlyStatus=consumerService.consumeOrderMessage(message);
+
+                    return concurrentlyStatus;
                 }
             });
             /*

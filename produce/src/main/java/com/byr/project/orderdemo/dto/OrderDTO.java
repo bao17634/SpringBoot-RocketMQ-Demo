@@ -15,6 +15,7 @@ import lombok.Data;
 public class OrderDTO {
     private Order order;
     private TssHouse tssHouse;
+    private String transactionId;
     /**
      *
      */

@@ -24,7 +24,7 @@ import java.util.concurrent.*;
  * @Version: 1.0
  */
 @Service
-public class OrderProduceServiceImpl implements OrderProduceService,InitializingBean {
+public  class OrderProduceServiceImpl implements OrderProduceService,InitializingBean {
     @Autowired
     ProduceTransactionListenerImpl transactionListener;
     private static TransactionMQProducer producer = new TransactionMQProducer("orderDemo");
@@ -59,13 +59,9 @@ public class OrderProduceServiceImpl implements OrderProduceService,Initializing
      */
     @Override
     public void produceOrder(OrderDTO orderDTO) {
-        TssHouse tssHouse=new TssHouse();
-        tssHouse.setCommodityCode(orderDTO.getOrder().getCommodityCode());
-        tssHouse.setCommodityName(orderDTO.getOrder().getOrderName());
-        tssHouse.setNumber(orderDTO.getOrder().getOrderCount());
         try {
             Message msg = new Message("orderMessage", "order",orderDTO.getOrder().getOrderCode(),
-                    JSON.toJSONString(tssHouse).getBytes(RemotingHelper.DEFAULT_CHARSET));
+                    JSON.toJSONString(orderDTO).getBytes(RemotingHelper.DEFAULT_CHARSET));
             //生产者通过sendMessageInTransaction发送事务消息
             SendResult sendResult = producer.sendMessageInTransaction(msg, null);
             System.out.println("prepare事务消息发送结果:"+sendResult.getSendStatus());
