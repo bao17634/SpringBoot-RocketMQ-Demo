@@ -194,7 +194,7 @@
     </if>
   </select>
   <select id="selectCount" resultType="java.lang.Long">
-    select count(*) from order where transaction_id=#{transactionId,jdbcType=VARCHAR};
+    select count(*) from public.order where transaction_id=#{transactionId,jdbcType=VARCHAR};
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--

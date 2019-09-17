@@ -3,19 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cb789231-64c3-41e1-a1b7-f08ac1e2715b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consumer/src/main/java/com/byr/project/consumer/demo/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer/src/main/java/com/byr/project/consumer/demo/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consumer/src/main/java/com/byr/project/consumer/demo/serveice/ConsumerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer/src/main/java/com/byr/project/consumer/demo/serveice/ConsumerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consumer/target/classes/com/byr/project/consumer/demo/serveice/impl/ConsumerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/consumer/target/classes/com/byr/project/consumer/demo/serveice/impl/ConsumerServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/OrderProduceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/OrderProduceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/OrderService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/TssHouseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/TssHouseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/impl/OrderProduceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/impl/OrderProduceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/impl/OrderServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/impl/ProduceTransactionListenerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/impl/ProduceTransactionListenerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/produce/target/classes/com/byr/project/orderdemo/service/impl/OrderProduceServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/produce/target/classes/com/byr/project/orderdemo/service/impl/OrderProduceServiceImpl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/produce/target/classes/com/byr/project/orderdemo/service/impl/OrderProduceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/produce/target/classes/com/byr/project/orderdemo/service/impl/OrderProduceServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/produce/target/classes/com/byr/project/orderdemo/service/impl/ProduceTransactionListenerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/produce/target/classes/com/byr/project/orderdemo/service/impl/ProduceTransactionListenerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/produce/target/classes/com/byr/project/orderdemo/service/impl/TssHouseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/produce/target/classes/com/byr/project/orderdemo/service/impl/TssHouseServiceImpl.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/consumer/target/" />
     <ignored path="$PROJECT_DIR$/produce/target/" />
@@ -45,11 +33,20 @@
       <file leaf-file-name="OrderProduceServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/impl/OrderProduceServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+            <state relative-caret-position="172">
+              <caret line="67" selection-start-line="67" selection-end-line="67" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationFilterChain.class" pinned="false" current-in-tab="true">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.23/tomcat-embed-core-8.5.23.jar!/org/apache/catalina/core/ApplicationFilterChain.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="71" selection-start-line="71" selection-end-line="71" />
             </state>
           </provider>
         </entry>
@@ -66,11 +63,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProduceTransactionListenerImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProduceTransactionListenerImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/impl/ProduceTransactionListenerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
+            <state relative-caret-position="129">
               <caret line="87" column="47" selection-start-line="87" selection-start-column="47" selection-end-line="87" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/controller/OrderController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="65">
+              <caret line="23" column="40" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,27 +111,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConsumerUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/consumer/src/main/java/com/byr/project/consumer/ConsumerUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2134">
-              <caret line="26" column="54" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SaasHouseMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/consumer/src/main/java/com/byr/project/consumer/demo/mapper/SaasHouseMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1058">
-              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TssHouseService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/TssHouseService.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -138,8 +126,8 @@
       <file leaf-file-name="TssHouseServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/impl/TssHouseServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+            <state relative-caret-position="144">
+              <caret line="54" column="79" lean-forward="true" selection-start-line="54" selection-start-column="79" selection-end-line="54" selection-end-column="79" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -231,7 +219,6 @@
         <option value="$PROJECT_DIR$/produce/src/main/resources/mybatis/mapper/TssHouseMapper.xml" />
         <option value="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/mapper/OrderMapper.java" />
         <option value="$PROJECT_DIR$/produce/src/main/resources/mybatis/mapper/OrderMapper.xml" />
-        <option value="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/impl/TssHouseServiceImpl.java" />
         <option value="$PROJECT_DIR$/consumer/src/main/java/com/byr/project/consumer/demo/serveice/impl/ConsumerServiceImpl.java" />
         <option value="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/impl/OrderProduceServiceImpl.java" />
         <option value="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/impl/ProduceTransactionListenerImpl.java" />
@@ -239,6 +226,7 @@
         <option value="$PROJECT_DIR$/consumer/src/main/java/com/byr/project/consumer/demo/serveice/ConsumerService.java" />
         <option value="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/OrderProduceService.java" />
         <option value="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/TssHouseService.java" />
+        <option value="$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/impl/TssHouseServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -673,19 +661,20 @@
       <workItem from="1568163822604" duration="31382000" />
       <workItem from="1568250136488" duration="18453000" />
       <workItem from="1568595615275" duration="577000" />
-      <workItem from="1568682397275" duration="974000" />
+      <workItem from="1568682397275" duration="2477000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61665000" />
+    <option name="totallyTimeSpent" value="63168000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.6444929" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -694,9 +683,9 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.31733915" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.24754634" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.2431843" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19349681" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19349681" />
       <window_info anchor="right" id="Bean Validation" order="3" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Database" order="3" weight="0.32995737" />
@@ -704,10 +693,9 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.41221374" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4274809" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.6444929" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -722,7 +710,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="44" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/impl/OrderProduceServiceImpl.java</url>
+          <line>67</line>
+          <properties />
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="45" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -735,13 +731,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/src.zip!/java/util/concurrent/Executors.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="510" selection-start-line="510" selection-end-line="510" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/rocketmq/rocketmq-client/4.5.0/rocketmq-client-4.5.0-sources.jar!/org/apache/rocketmq/client/impl/consumer/ConsumeMessageConcurrentlyService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
@@ -958,16 +947,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/controller/OrderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="40" column="34" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/rocketmq/rocketmq-client/4.5.0/rocketmq-client-4.5.0-sources.jar!/org/apache/rocketmq/client/producer/TransactionMQProducer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
@@ -1085,10 +1064,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/impl/ProduceTransactionListenerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="87" column="47" selection-start-line="87" selection-start-column="47" selection-end-line="87" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/controller/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="23" column="40" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/impl/TssHouseServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+        <state relative-caret-position="144">
+          <caret line="54" column="79" lean-forward="true" selection-start-line="54" selection-start-column="79" selection-end-line="54" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1097,18 +1093,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/impl/OrderProduceServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+        <state relative-caret-position="172">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/produce/src/main/java/com/byr/project/orderdemo/service/impl/ProduceTransactionListenerImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.23/tomcat-embed-core-8.5.23.jar!/org/apache/catalina/core/ApplicationFilterChain.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="87" column="47" selection-start-line="87" selection-start-column="47" selection-end-line="87" selection-end-column="47" />
+        <state relative-caret-position="180">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
         </state>
       </provider>
     </entry>
