@@ -10,5 +10,9 @@ import com.byr.project.orderdemo.dto.OrderDTO;
  * @Version: 1.0
  */
 public  interface OrderProduceService {
+    /**
+     * 订单消息生产者服务
+     * @param orderDTO
+     */
     void produceOrder(OrderDTO orderDTO);
 }

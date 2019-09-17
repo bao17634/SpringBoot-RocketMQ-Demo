@@ -12,6 +12,19 @@ import org.apache.ibatis.annotations.Param;
  */
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
+    /**
+     * 减少金额
+     * @param userId
+     * @param money
+     * @return
+     */
     int reduceMoney(@Param("userId") Long userId, @Param("money") Long money);
+
+    /**
+     * 增加金额
+     * @param userId
+     * @param money
+     * @return
+     */
     int addMoney(@Param("userId") Long userId, @Param("money") Long money);
 }

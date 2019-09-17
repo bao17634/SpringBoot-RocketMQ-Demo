@@ -28,6 +28,7 @@ import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @Desc: 执行本地事务
@@ -49,6 +50,7 @@ public class ProduceTransactionListenerImpl implements TransactionListener {
      * @return
      */
     @Override
+    @Transactional
     public LocalTransactionState executeLocalTransaction(Message msg, Object arg) {
         OrderDTO orderDTO = JSON.parseObject(msg.getBody(), OrderDTO.class);
         //设置该消息
@@ -63,12 +65,13 @@ public class ProduceTransactionListenerImpl implements TransactionListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        log.info("执行本地事务");
         log.info("转账成功：" + System.currentTimeMillis());
         return state;
     }
 
     /**
-     * 每隔一段时间  rocketMQ 会回调 这个方法 判断 每一条消息是否提交。防止 消息状态停滞 或者出现超时的情况
+     * 每隔一段时间 rocketMQ 会回调 这个方法 判断 每一条消息是否提交。防止 消息状态停滞 或者出现超时的情况
      *
      * @param msg
      * @return

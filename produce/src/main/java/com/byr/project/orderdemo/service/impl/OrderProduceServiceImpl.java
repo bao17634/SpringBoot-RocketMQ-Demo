@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.byr.project.orderdemo.dto.OrderDTO;
 import com.byr.project.orderdemo.entity.TssHouse;
 import com.byr.project.orderdemo.service.OrderProduceService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.client.producer.TransactionMQProducer;
@@ -24,6 +25,7 @@ import java.util.concurrent.*;
  * @Version: 1.0
  */
 @Service
+@Slf4j
 public  class OrderProduceServiceImpl implements OrderProduceService,InitializingBean {
     @Autowired
     ProduceTransactionListenerImpl transactionListener;
@@ -62,9 +64,9 @@ public  class OrderProduceServiceImpl implements OrderProduceService,Initializin
         try {
             Message msg = new Message("orderMessage", "order",orderDTO.getOrder().getOrderCode(),
                     JSON.toJSONString(orderDTO).getBytes(RemotingHelper.DEFAULT_CHARSET));
-            //生产者通过sendMessageInTransaction想消费者发送事务消息
+            //生产者通过sendMessageInTransaction向RocketMQ发送事务消息
             SendResult sendResult = producer.sendMessageInTransaction(msg, null);
-            System.out.println("prepare事务消息发送结果:"+sendResult.getSendStatus());
+            log.info("prepare事务消息发送结果:"+sendResult.getSendStatus());
         } catch (Exception e) {
             e.printStackTrace();
         }
