@@ -53,6 +53,7 @@ public  class OrderProduceServiceImpl implements OrderProduceService,Initializin
             producer.start();
         } catch (MQClientException e) {
             e.printStackTrace();
+            throw  new RuntimeException(e);
         }
     }
 
@@ -69,6 +70,7 @@ public  class OrderProduceServiceImpl implements OrderProduceService,Initializin
             log.info("prepare事务消息发送结果:"+sendResult.getSendStatus());
         } catch (Exception e) {
             e.printStackTrace();
+            throw  new RuntimeException(e);
         }
     }
 }

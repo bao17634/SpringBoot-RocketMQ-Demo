@@ -35,25 +35,29 @@ public class TssHouseServiceImpl implements TssHouseService {
     public synchronized Integer reduceTssHouse(OrderDTO orderDTO,String transactionId) {
 //        将本地事务Id存入到运单表中，以便后续检验本地事务是否执行成功
         orderDTO.getOrder().setTransactionId(transactionId);
-        Integer orderCount=orderMapper.insert(orderDTO.getOrder());
-        if(orderCount != 1){
-            log.error("订单表插入失败");
-            throw new RuntimeException("订单表插入失败");
-        }
-        TssHouseExample example = new TssHouseExample();
-        TssHouse tssHouse=new TssHouse();
-        example.createCriteria().andCommodityCodeEqualTo(orderDTO.getOrder().getCommodityCode());
-        Integer number = tssHouseMapper.selectNumber(orderDTO.getOrder().getCommodityCode());
-        if (number == null ) {
-            log.error("TSS没有此商品的库存");
-            throw new RuntimeException("TSS没有此商品的库存");
-        }else if (number < orderDTO.getOrder().getOrderCount()) {
-            log.error("此商品在Tss库存不足");
-            throw new RuntimeException("此商品在Tss库存不足");
-        }
-        tssHouse.setNumber(number - orderDTO.getOrder().getOrderCount());
-        Integer a = tssHouseMapper.updateByExampleSelective(tssHouse, example);
-        return a;
+      try {
+          Integer orderCount=orderMapper.insert(orderDTO.getOrder());
+          if(orderCount != 1){
+              log.error("订单表插入失败");
+              throw new RuntimeException("订单表插入失败");
+          }
+          TssHouseExample example = new TssHouseExample();
+          TssHouse tssHouse=new TssHouse();
+          example.createCriteria().andCommodityCodeEqualTo(orderDTO.getOrder().getCommodityCode());
+          Integer number = tssHouseMapper.selectNumber(orderDTO.getOrder().getCommodityCode());
+          if (number == null ) {
+              log.error("TSS没有此商品的库存");
+              throw new RuntimeException("TSS没有此商品的库存");
+          }else if (number < orderDTO.getOrder().getOrderCount()) {
+              log.error("此商品在Tss库存不足");
+              throw new RuntimeException("此商品在Tss库存不足");
+          }
+          tssHouse.setNumber(number - orderDTO.getOrder().getOrderCount());
+          Integer a = tssHouseMapper.updateByExampleSelective(tssHouse, example);
+          return a;
+      }catch (Exception e){
+          throw new RuntimeException(e);
+      }
     }
     /**
      * 检查本地扣钱事务执行状态

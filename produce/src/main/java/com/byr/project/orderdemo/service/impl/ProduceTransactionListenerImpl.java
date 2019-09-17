@@ -64,6 +64,7 @@ public class ProduceTransactionListenerImpl implements TransactionListener {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            throw  new RuntimeException(e);
         }
         log.info("执行本地事务");
         log.info("转账成功：" + System.currentTimeMillis());
@@ -93,6 +94,7 @@ public class ProduceTransactionListenerImpl implements TransactionListener {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            throw  new RuntimeException(e);
         }
         return state;
     }
