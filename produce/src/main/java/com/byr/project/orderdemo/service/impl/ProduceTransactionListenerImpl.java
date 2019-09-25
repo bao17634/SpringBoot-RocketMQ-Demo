@@ -73,7 +73,6 @@ public class ProduceTransactionListenerImpl implements TransactionListener {
 
     /**
      * 每隔一段时间 rocketMQ 会回调 这个方法 判断 每一条消息是否提交。防止 消息状态停滞 或者出现超时的情况
-     *
      * @param msg
      * @return
      */

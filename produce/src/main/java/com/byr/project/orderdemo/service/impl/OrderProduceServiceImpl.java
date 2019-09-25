@@ -58,7 +58,7 @@ public  class OrderProduceServiceImpl implements OrderProduceService,Initializin
     }
 
     /**
-     *向消费端发消息
+     *向MQ发消息
      */
     @Override
     public void produceOrder(OrderDTO orderDTO) {

@@ -92,7 +92,7 @@ public class ConsumerServiceImpl implements ConsumerService {
                return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
            }else {
                log.info("消息消费失败：" + System.currentTimeMillis());
-               return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+               return ConsumeConcurrentlyStatus.RECONSUME_LATER;
            }
        }catch (Exception e){
            throw new RuntimeException("消费消费失败",e);
