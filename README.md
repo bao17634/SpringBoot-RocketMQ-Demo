@@ -1,5 +1,5 @@
 # SpringBoot-RocketMQ-Demo
-### 数据库是用mysql和postgreSQL，如没有安装postgreSQL可以跟换成你自己的数据库。
+### 数据库是用mysql和postgreSQL，如没有安装postgreSQL可以换成你自己熟悉的数据库。
 *  下载代码后需要下载最新的[rocketMQ](https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.5.2/rocketmq-all-4.5.2-bin-release.zip),
 *  解压后[请点击此教程](https://www.jianshu.com/p/4a275e779afa)配置rockMq环境。
 *  安装好rocketMQ后并启动NAMESERVER、BROKER。
