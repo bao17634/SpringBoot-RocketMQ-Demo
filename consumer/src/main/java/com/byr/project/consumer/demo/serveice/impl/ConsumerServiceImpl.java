@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.byr.project.consumer.demo.entity.Order;
 import com.byr.project.consumer.demo.entity.SaasHouse;
 import com.byr.project.consumer.demo.entity.SaasHouseExample;
+import com.byr.project.consumer.demo.mapper.OrderMapper;
 import com.byr.project.consumer.demo.mapper.SaasHouseMapper;
 import com.byr.project.consumer.demo.mapper.UserMapper;
 import com.byr.project.consumer.demo.serveice.ConsumerService;
@@ -27,6 +28,8 @@ import java.util.List;
 @Service
 @Slf4j
 public class ConsumerServiceImpl implements ConsumerService {
+    @Autowired
+    OrderMapper orderMapper;
     @Autowired
     UserMapper userMapper;
     @Autowired
@@ -53,50 +56,99 @@ public class ConsumerServiceImpl implements ConsumerService {
         return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
     }
 
+    //订单消息消费
+    @Transactional
     @Override
     public synchronized ConsumeConcurrentlyStatus consumeOrderMessage(List<MessageExt> messages) {
         try {
             for (MessageExt msg : messages) {
-                return this.singleConsumerMessage(msg);
+                JSONObject jsonInfo = JSON.parseObject(new String(msg.getBody()));
+                if (jsonInfo == null || jsonInfo.get("order") == null) {
+                    return ConsumeConcurrentlyStatus.RECONSUME_LATER;
+                }
+                //通过记录表查看消息是否已经被消费。
+                boolean msgStatus = this.checkTransferStatus(msg.getTransactionId());
+                if (msgStatus) {
+                    return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+                }
+                this.saveOrder(jsonInfo, msg.getTransactionId());
+                return this.singleConsumerMessage(jsonInfo);
             }
         } catch (Exception e) {
             throw new RuntimeException("消费端发生异常", e);
         }
         return ConsumeConcurrentlyStatus.RECONSUME_LATER;
     }
-    @Transactional
-    public ConsumeConcurrentlyStatus singleConsumerMessage(MessageExt msg){
-        int  saasCunt=0;
-       try {
-           JSONObject jsonInfo = JSON.parseObject(new String(msg.getBody()));
-           if (jsonInfo == null || jsonInfo.get("order") == null) {
-               return ConsumeConcurrentlyStatus.RECONSUME_LATER;
-           }
-           JSONObject order = JSON.parseObject(jsonInfo.get("order").toString());
-           SaasHouseExample example = new SaasHouseExample();
-           example.createCriteria().andCommodityCodeEqualTo(order.get("commodityCode").toString());
-           Integer number = saasHouseMapper.selectNumber(order.get("commodityCode").toString());
-           SaasHouse saasHouse = new SaasHouse();
-           //如果Tss仓库没有这个商品的数据则添加，否则就修改
-           if (number == null ) {
-               saasHouse.setCommodityCode(order.get("commodityCode").toString());
-               saasHouse.setCommodityName(order.get("orderName").toString());
-               saasHouse.setNumber(Integer.valueOf(order.get("orderCount").toString()));
-               saasCunt = saasHouseMapper.insert(saasHouse);
-           } else {
-               saasHouse.setNumber(Integer.valueOf(order.get("orderCount").toString()) + number);
-               saasCunt = saasHouseMapper.updateByExampleSelective(saasHouse, example);
-           }
-           if (saasCunt == 1) {
-               log.info("消息消费成功：" + System.currentTimeMillis());
-               return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
-           }else {
-               log.info("消息消费失败：" + System.currentTimeMillis());
-               return ConsumeConcurrentlyStatus.RECONSUME_LATER;
-           }
-       }catch (Exception e){
-           throw new RuntimeException("消费消费失败",e);
-       }
+
+    public ConsumeConcurrentlyStatus singleConsumerMessage(JSONObject jsonInfo) {
+        int saasCunt = 0;
+        try {
+            JSONObject order = JSON.parseObject(jsonInfo.get("order").toString());
+            SaasHouseExample example = new SaasHouseExample();
+            example.createCriteria().andCommodityCodeEqualTo(order.get("commodityCode").toString());
+            Integer number = saasHouseMapper.selectNumber(order.get("commodityCode").toString());
+            SaasHouse saasHouse = new SaasHouse();
+            //如果Tss仓库没有这个商品的数据则添加，否则就修改
+            if (number == null) {
+                saasHouse.setCommodityCode(order.get("commodityCode").toString());
+                saasHouse.setCommodityName(order.get("orderName").toString());
+                saasHouse.setNumber(Integer.valueOf(order.get("orderCount").toString()));
+                saasCunt = saasHouseMapper.insert(saasHouse);
+            } else {
+                saasHouse.setNumber(Integer.valueOf(order.get("orderCount").toString()) + number);
+                saasCunt = saasHouseMapper.updateByExampleSelective(saasHouse, example);
+            }
+            if (saasCunt == 1) {
+                log.info("消息消费成功：" + System.currentTimeMillis());
+                return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+            } else {
+                log.info("消息消费失败：" + System.currentTimeMillis());
+                return ConsumeConcurrentlyStatus.RECONSUME_LATER;
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("消费消费失败", e);
+        }
+    }
+
+    /**
+     * 将收到的消息插入消息记录表中
+     *
+     * @param jsonInfo
+     * @return
+     */
+    public void saveOrder(JSONObject jsonInfo, String transactionId) {
+        JSONObject orderJson = JSON.parseObject(jsonInfo.get("order").toString());
+        Order order = new Order();
+        try {
+            order.setCommodityCode(orderJson.getString("commodityCode"));
+            order.setOrderCode(orderJson.getString("orderCode"));
+            order.setOrderCount(Integer.valueOf(orderJson.get("orderCount").toString()));
+            order.setOrderName(orderJson.getString("orderName"));
+            order.setTransactionId(transactionId);
+            Integer a = orderMapper.insert(order);
+            if (a != 1) {
+                throw new RuntimeException("消息消费失败");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 检查本地事务执行状态
+     *
+     * @param transactionId
+     * @return
+     */
+    public boolean checkTransferStatus(String transactionId) {
+        //根据本地线程Id是否有这个数据，有运单记录，标识本地事务执行成功
+        try {
+            Long count = orderMapper.selectCount(transactionId);
+            return count > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 }

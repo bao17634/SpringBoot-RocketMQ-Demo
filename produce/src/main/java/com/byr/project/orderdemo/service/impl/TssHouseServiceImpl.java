@@ -1,14 +1,11 @@
 package com.byr.project.orderdemo.service.impl;
 
 import com.byr.project.orderdemo.dto.OrderDTO;
-import com.byr.project.orderdemo.entity.Order;
-import com.byr.project.orderdemo.entity.OrderExample;
 import com.byr.project.orderdemo.entity.TssHouse;
 import com.byr.project.orderdemo.entity.TssHouseExample;
 import com.byr.project.orderdemo.mapper.OrderMapper;
 import com.byr.project.orderdemo.mapper.TssHouseMapper;
 import com.byr.project.orderdemo.service.TssHouseService;
-import com.byr.project.paydemo.entity.TransferRecord;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -60,7 +57,7 @@ public class TssHouseServiceImpl implements TssHouseService {
       }
     }
     /**
-     * 检查本地扣钱事务执行状态
+     * 检查本地事务执行状态
      * @param transactionId
      * @return
      */
