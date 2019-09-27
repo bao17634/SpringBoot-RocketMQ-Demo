@@ -67,9 +67,7 @@ public  class OrderProduceServiceImpl implements OrderProduceService,Initializin
                     JSON.toJSONString(orderDTO).getBytes(RemotingHelper.DEFAULT_CHARSET));
             //生产者通过sendMessageInTransaction向RocketMQ发送事务消息
             SendResult sendResult = producer.sendMessageInTransaction(msg, null);
-            log.info("prepare事务消息发送结果:"+sendResult.getSendStatus());
         } catch (Exception e) {
-            e.printStackTrace();
             throw  new RuntimeException(e);
         }
     }

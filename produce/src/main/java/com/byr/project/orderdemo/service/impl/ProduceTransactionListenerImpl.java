@@ -54,7 +54,7 @@ public class ProduceTransactionListenerImpl implements TransactionListener {
     public LocalTransactionState executeLocalTransaction(Message msg, Object arg) {
         OrderDTO orderDTO = JSON.parseObject(msg.getBody(), OrderDTO.class);
         //设置该消息
-        LocalTransactionState state = LocalTransactionState.UNKNOW;
+        LocalTransactionState state = LocalTransactionState.ROLLBACK_MESSAGE;
         try {
             Integer isCommit = tssHouseService.reduceTssHouse(orderDTO,msg.getTransactionId());
             if (isCommit == 1) {
@@ -63,7 +63,6 @@ public class ProduceTransactionListenerImpl implements TransactionListener {
                 state = LocalTransactionState.ROLLBACK_MESSAGE;
             }
         } catch (Exception e) {
-            e.printStackTrace();
             throw  new RuntimeException(e);
         }
         log.info("执行本地事务");

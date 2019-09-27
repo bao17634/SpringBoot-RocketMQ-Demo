@@ -58,7 +58,7 @@ public class TransactionListenerImpl implements TransactionListener {
                 state = LocalTransactionState.ROLLBACK_MESSAGE;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException("本地事务执行异常");
         }
         log.info("转账成功："+System.currentTimeMillis());
         return state;

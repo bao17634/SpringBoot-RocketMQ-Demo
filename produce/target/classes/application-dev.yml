@@ -13,18 +13,6 @@ spring:
     password: bao026099
     driverClassName: org.postgresql.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-  #redis配置
-  redis:
-    host:
-    password:
-    port: 6379
-    database: 0
-    pool:
-      max-active: 50
-      max-idle: 20
-      max-wait: -1
-      min-idle: 10
-    timeout: 10000
 #开发环境打印sql
 logging:
   level:

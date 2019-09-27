@@ -119,18 +119,14 @@ public class ConsumerServiceImpl implements ConsumerService {
     public void saveOrder(JSONObject jsonInfo, String transactionId) {
         JSONObject orderJson = JSON.parseObject(jsonInfo.get("order").toString());
         Order order = new Order();
-        try {
-            order.setCommodityCode(orderJson.getString("commodityCode"));
-            order.setOrderCode(orderJson.getString("orderCode"));
-            order.setOrderCount(Integer.valueOf(orderJson.get("orderCount").toString()));
-            order.setOrderName(orderJson.getString("orderName"));
-            order.setTransactionId(transactionId);
-            Integer a = orderMapper.insert(order);
-            if (a != 1) {
-                throw new RuntimeException("消息消费失败");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        order.setCommodityCode(orderJson.getString("commodityCode"));
+        order.setOrderCode(orderJson.getString("orderCode"));
+        order.setOrderCount(Integer.valueOf(orderJson.get("orderCount").toString()));
+        order.setOrderName(orderJson.getString("orderName"));
+        order.setTransactionId(transactionId);
+        Integer a = orderMapper.insert(order);
+        if (a != 1) {
+            throw new RuntimeException("消息消费失败");
         }
     }
 
@@ -146,9 +142,8 @@ public class ConsumerServiceImpl implements ConsumerService {
             Long count = orderMapper.selectCount(transactionId);
             return count > 0;
         } catch (Exception e) {
-            e.printStackTrace();
+         throw new RuntimeException("消息检查回调失败");
         }
-        return false;
     }
 
 }

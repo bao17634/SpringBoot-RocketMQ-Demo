@@ -28,7 +28,6 @@ public class TssHouseServiceImpl implements TssHouseService {
     @Autowired
     TssHouseMapper tssHouseMapper;
     @Override
-    @Transactional(rollbackFor = RuntimeException.class)
     public synchronized Integer reduceTssHouse(OrderDTO orderDTO,String transactionId) {
 //        将本地事务Id存入到运单表中，以便后续检验本地事务是否执行成功
         orderDTO.getOrder().setTransactionId(transactionId);

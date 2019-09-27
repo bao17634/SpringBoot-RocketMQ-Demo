@@ -57,7 +57,7 @@ public class TransactionProducer  implements InitializingBean {
         try {
             producer.start();
         } catch (MQClientException e) {
-            e.printStackTrace();
+           throw new RuntimeException("produce回调时发生异常");
         }
     }
     public void test() {
@@ -76,7 +76,7 @@ public class TransactionProducer  implements InitializingBean {
             SendResult sendResult = producer.sendMessageInTransaction(msg, null);
             System.out.println("prepare事务消息发送结果:"+sendResult.getSendStatus());
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException("消息发送出现异常");
         }
 
     }
