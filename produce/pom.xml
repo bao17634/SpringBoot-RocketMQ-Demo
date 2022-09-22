@@ -37,7 +37,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>RELEASE</version>
+            <version>42.3.7</version>
         </dependency>
         <!--Spring Boot依赖-->
         <dependency>
